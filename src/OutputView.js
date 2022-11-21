@@ -20,7 +20,7 @@ const OutputView = {
     upBridge += ']';
     downBridge += ']';
 
-    Console.print(`${upBridge}\n${downBridge}`);
+    Console.print(`${upBridge}\n${downBridge}\n`);
   },
 
   addUpBridgeResult(bridge, current, index) {
@@ -46,9 +46,9 @@ const OutputView = {
   },
 
   printResult(bridge) {
-    Console.print(`\n${TOTAL_RESULT}`);
+    Console.print(`${TOTAL_RESULT}\n`);
     this.printMap(bridge);
-    Console.print(`\n${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}`);
+    Console.print(`${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}\n`);
     Console.print(`${TOTAL_TRY_COUNT}${bridge.tryCount}`);
   },
 };
