@@ -7,7 +7,7 @@ const bridge = new BridgeGame();
 const InputView = {
   readBridgeSize() {
     Console.readLine(`${PLZ_BRIDGE_LENGTH}\n`, size => {
-      validator.bridgeSizeCheck(size);
+      validator.bridgeSizeCheck(+size);
       bridge.setBridge(size);
       this.readMoving();
     });

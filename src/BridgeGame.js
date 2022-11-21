@@ -18,17 +18,10 @@ class BridgeGame {
   }
 
   gameSuccess() {
-    if (this.#bridge.length === this.#userPosition.length) {
+    if (this.#bridge.length === this.#userPosition.length && this.#isPlaying) {
       return true;
     }
     return false;
-  }
-
-  gameSuccessCheck() {
-    if (JSON.stringify(this.#bridge) === JSON.stringify(this.#userPosition)) {
-      return '성공';
-    }
-    return '실패';
   }
 
   move(position) {
@@ -52,6 +45,13 @@ class BridgeGame {
 
   get isPlaying() {
     return this.#isPlaying;
+  }
+
+  gameSuccessCheck() {
+    if (JSON.stringify(this.#bridge) === JSON.stringify(this.#userPosition)) {
+      return '성공';
+    }
+    return '실패';
   }
 
   retry() {
