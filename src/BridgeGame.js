@@ -24,6 +24,13 @@ class BridgeGame {
     return false;
   }
 
+  gameSuccessCheck() {
+    if (JSON.stringify(this.#bridge) === JSON.stringify(this.#userPosition)) {
+      return '성공';
+    }
+    return '실패';
+  }
+
   move(position) {
     if (this.#bridge[this.#userPosition.length] !== position) {
       this.#isPlaying = false;
@@ -45,13 +52,6 @@ class BridgeGame {
 
   get isPlaying() {
     return this.#isPlaying;
-  }
-
-  gameSuccessCheck() {
-    if (JSON.stringify(this.#bridge) === JSON.stringify(this.#userPosition)) {
-      return '성공';
-    }
-    return '실패';
   }
 
   retry() {
