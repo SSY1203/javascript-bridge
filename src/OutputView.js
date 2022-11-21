@@ -38,7 +38,7 @@ const OutputView = {
     let result = '';
     result += index === 0 ? '' : '|';
     if (current === 'D') {
-      bridge.userSelection[index] === bridge.bridge[index] ? (result += ' O ') : (result += ' X ');
+      bridge.userPosition[index] === bridge.bridge[index] ? (result += ' O ') : (result += ' X ');
     } else {
       result += '   ';
     }
@@ -46,7 +46,7 @@ const OutputView = {
   },
 
   printResult(bridge) {
-    Console.print(`\n${TOTAL_RESULT}\n`);
+    Console.print(`\n${TOTAL_RESULT}`);
     this.printMap(bridge);
     Console.print(`\n${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}`);
     Console.print(`${TOTAL_TRY_COUNT}${bridge.tryCount}`);
