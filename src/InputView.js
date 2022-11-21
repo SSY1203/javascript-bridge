@@ -7,35 +7,38 @@ const bridge = new BridgeGame();
 const InputView = {
   readBridgeSize() {
     Console.readLine(`${PLZ_BRIDGE_LENGTH}\n`, size => {
-      validator.bridgeSizeCheck(+size);
-      bridge.setBridge(size);
-      this.readMoving();
+      if (validator.bridgeSizeCheck(+size)) {
+        bridge.setBridge(size);
+        this.readMoving();
+      }
     });
   },
 
   readMoving() {
     Console.readLine(`\n${PLZ_MOVE_POSITION}\n`, position => {
-      validator.moveBridgePositionCheck(position);
-      bridge.move(position);
-      OutputView.printMap(bridge);
-      if (bridge.gameSuccess()) {
-        OutputView.printResult(bridge);
-      } else if (bridge.isPlaying) {
-        this.readMoving();
-      } else {
-        this.readGameCommand();
+      if (validator.moveBridgePositionCheck(position)) {
+        bridge.move(position);
+        OutputView.printMap(bridge);
+        if (bridge.gameSuccess()) {
+          OutputView.printResult(bridge);
+        } else if (bridge.isPlaying) {
+          this.readMoving();
+        } else {
+          this.readGameCommand();
+        }
       }
     });
   },
 
   readGameCommand() {
     Console.readLine(`\n${RETRY_OR_QUIT}\n`, selection => {
-      validator.retryOrQuitInputCheck(selection);
-      if (selection === 'R') {
-        bridge.retry();
-        this.readMoving();
-      } else if (selection === 'Q') {
-        OutputView.printResult(bridge);
+      if (validator.retryOrQuitInputCheck(selection)) {
+        if (selection === 'R') {
+          bridge.retry();
+          this.readMoving();
+        } else if (selection === 'Q') {
+          OutputView.printResult(bridge);
+        }
       }
     });
   },
