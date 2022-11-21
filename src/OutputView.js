@@ -1,4 +1,10 @@
-const { GAME_START, Console } = require('./Constant');
+const {
+  GAME_START,
+  Console,
+  TOTAL_RESULT,
+  GAME_RESULT_CHECK,
+  TOTAL_TRY_COUNT,
+} = require('./Constant');
 const OutputView = {
   printStart() {
     Console.print(`${GAME_START}\n`);
@@ -39,7 +45,12 @@ const OutputView = {
     return result;
   },
 
-  printResult() {},
+  printResult() {
+    Console.print(`\n${TOTAL_RESULT}`);
+    this.printMap(bridge);
+    Console.print(`\n${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}`);
+    Console.print(`${TOTAL_TRY_COUNT}${bridge.tryCount}`);
+  },
 };
 
 module.exports = OutputView;
