@@ -14,7 +14,7 @@ const InputView = {
     Console.readLine(`\n${PLZ_MOVE_POSITION}\n`, position => {
       bridge.move(position);
       OutputView.printMap(bridge);
-      if (bridge.gameSuccessCheck()) {
+      if (bridge.gameSuccess()) {
         OutputView.printResult(bridge);
       } else if (bridge.isPlaying) {
         this.readMoving();
