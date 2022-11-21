@@ -16,6 +16,10 @@ const InputView = {
       OutputView.printMap(bridge);
       if (bridge.gameSuccessCheck()) {
         OutputView.printResult(bridge);
+      } else if (bridge.isPlaying) {
+        this.readMoving();
+      } else {
+        this.readGameCommand();
       }
     });
   },

@@ -3,10 +3,13 @@ class BridgeGame {
   #bridge;
   #userPosition;
   #tryCount;
+  #isPlaying;
+
   constructor() {
     this.#bridge = [];
     this.#userPosition = [];
     this.#tryCount = 1;
+    this.#isPlaying = true;
   }
 
   setBridge(size) {
@@ -28,15 +31,31 @@ class BridgeGame {
   }
 
   move(position) {
+    if (this.#bridge[this.#userPosition.length] !== position) {
+      this.#isPlaying = false;
+    }
     this.#userPosition.push(position);
-  }
-
-  retry() {
-    this.#tryCount += 1;
   }
 
   get bridge() {
     return this.#bridge;
+  }
+
+  get userPosition() {
+    return this.#userPosition;
+  }
+
+  get tryCount() {
+    return this.#tryCount;
+  }
+
+  get isPlaying() {
+    return this.#isPlaying;
+  }
+
+  retry() {
+    this.#isPlaying = true;
+    this.#tryCount += 1;
   }
 }
 
