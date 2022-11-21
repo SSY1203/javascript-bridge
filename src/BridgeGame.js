@@ -1,16 +1,19 @@
 const BridgeMaker = require('./BridgeMaker');
 class BridgeGame {
   #bridge;
-
+  #userPosition;
   constructor() {
     this.#bridge = [];
+    this.#userPosition = [];
   }
 
   setBridge(size) {
     this.#bridge = BridgeMaker.makeBridge(size, BridgeRandomNumberGenerator.generate);
   }
 
-  move() {}
+  move(position) {
+    this.#userPosition.push(position);
+  }
 
   retry() {}
 
