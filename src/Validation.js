@@ -10,7 +10,7 @@ class Validation {
   }
 
   moveBridgePositionCheck(position) {
-    if (position !== 'U' || position !== 'D') {
+    if (position !== 'U' && position !== 'D') {
       throw Error('[ERROR] U 또는 D를 입력해주세요.');
     }
     return;
