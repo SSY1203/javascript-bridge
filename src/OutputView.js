@@ -46,7 +46,7 @@ const OutputView = {
   },
 
   printResult(bridge) {
-    Console.print(`\n${TOTAL_RESULT}`);
+    Console.print(`\n${TOTAL_RESULT}\n`);
     this.printMap(bridge);
     Console.print(`\n${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}`);
     Console.print(`${TOTAL_TRY_COUNT}${bridge.tryCount}`);
