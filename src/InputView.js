@@ -2,12 +2,11 @@ const { Console, PLZ_BRIDGE_LENGTH, PLZ_MOVE_POSITION, RETRY_OR_QUIT } = require
 const OutputView = require('./OutputView');
 const Validation = require('./Validation');
 const BridgeGame = require('./BridgeGame');
-const validator = new Validation();
 const bridge = new BridgeGame();
 const InputView = {
   readBridgeSize() {
     Console.readLine(`${PLZ_BRIDGE_LENGTH}\n`, size => {
-      if (validator.bridgeSizeCheck(+size)) {
+      if (Validation.bridgeSizeCheck(+size)) {
         bridge.setBridge(size);
         this.readMoving();
       }
@@ -16,7 +15,7 @@ const InputView = {
 
   readMoving() {
     Console.readLine(`\n${PLZ_MOVE_POSITION}\n`, position => {
-      if (validator.moveBridgePositionCheck(position)) {
+      if (Validation.moveBridgePositionCheck(position)) {
         bridge.move(position);
         OutputView.printMap(bridge);
         if (bridge.gameSuccess()) {
@@ -32,7 +31,7 @@ const InputView = {
 
   readGameCommand() {
     Console.readLine(`\n${RETRY_OR_QUIT}\n`, selection => {
-      if (validator.retryOrQuitInputCheck(selection)) {
+      if (Validation.retryOrQuitInputCheck(selection)) {
         if (selection === 'R') {
           bridge.retry();
           this.readMoving();
