@@ -24,7 +24,7 @@ class BridgeGame {
   }
 
   gameSuccessCheck() {
-    if (JSON.stringify(this.#bridge) === JSON.stringify(this.#userSelection)) {
+    if (JSON.stringify(this.#bridge) === JSON.stringify(this.#userPosition)) {
       return '성공';
     }
     return '실패';

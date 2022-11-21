@@ -1,6 +1,6 @@
-const BridgeGame = require('./BridgeGame');
 const { Console, PLZ_BRIDGE_LENGTH, PLZ_MOVE_POSITION, RETRY_OR_QUIT } = require('./Constant');
 const OutputView = require('./OutputView');
+const BridgeGame = require('./BridgeGame');
 const bridge = new BridgeGame();
 const InputView = {
   readBridgeSize() {
