@@ -13,6 +13,7 @@ const InputView = {
   readMoving() {
     Console.readLine(`\n${PLZ_MOVE_POSITION}\n`, position => {
       bridge.move(position);
+      OutputView.printMap(bridge);
     });
   },
 
