@@ -45,7 +45,7 @@ const OutputView = {
     return result;
   },
 
-  printResult() {
+  printResult(bridge) {
     Console.print(`\n${TOTAL_RESULT}`);
     this.printMap(bridge);
     Console.print(`\n${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}`);
