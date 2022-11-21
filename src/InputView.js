@@ -15,6 +15,7 @@ const InputView = {
 
   readMoving() {
     Console.readLine(`\n${PLZ_MOVE_POSITION}\n`, position => {
+      validator.moveBridgePositionCheck(position);
       bridge.move(position);
       OutputView.printMap(bridge);
       if (bridge.gameSuccess()) {
