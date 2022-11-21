@@ -1,5 +1,5 @@
 const BridgeGame = require('./BridgeGame');
-const { Console, PLZ_BRIDGE_LENGTH, PLZ_MOVE_POSITION } = require('./Constant');
+const { Console, PLZ_BRIDGE_LENGTH, PLZ_MOVE_POSITION, RETRY_OR_QUIT } = require('./Constant');
 const OutputView = require('./OutputView');
 const bridge = new BridgeGame();
 const InputView = {
@@ -24,7 +24,16 @@ const InputView = {
     });
   },
 
-  readGameCommand() {},
+  readGameCommand() {
+    Console.readLine(`\n${RETRY_OR_QUIT}\n`, selection => {
+      if (selection === 'R') {
+        bridge.retry();
+        this.readMoving();
+      } else if (selection === 'Q') {
+        OutputView.printResult(bridge);
+      }
+    });
+  },
 };
 
 module.exports = InputView;

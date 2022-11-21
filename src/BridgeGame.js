@@ -54,6 +54,7 @@ class BridgeGame {
   }
 
   retry() {
+    this.#userPosition = [];
     this.#isPlaying = true;
     this.#tryCount += 1;
   }
