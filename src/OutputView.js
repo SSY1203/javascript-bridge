@@ -23,7 +23,7 @@ const OutputView = {
     Console.print(`${upBridge}\n${downBridge}`);
   },
 
-  addUpBridgeResult() {
+  addUpBridgeResult(bridge, current, index) {
     let result = '';
     result += index === 0 ? '' : '|';
     if (current === 'U') {
@@ -34,7 +34,7 @@ const OutputView = {
     return result;
   },
 
-  addDownBridgeResult() {
+  addDownBridgeResult(bridge, current, index) {
     let result = '';
     result += index === 0 ? '' : '|';
     if (current === 'D') {
