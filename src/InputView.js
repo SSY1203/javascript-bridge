@@ -30,6 +30,7 @@ const InputView = {
 
   readGameCommand() {
     Console.readLine(`\n${RETRY_OR_QUIT}\n`, selection => {
+      validator.retryOrQuitInputCheck(selection);
       if (selection === 'R') {
         bridge.retry();
         this.readMoving();

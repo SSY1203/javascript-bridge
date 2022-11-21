@@ -15,6 +15,12 @@ class Validation {
     }
     return;
   }
+
+  retryOrQuitInputCheck(selection) {
+    if (selection !== 'R' && selection !== 'Q') {
+      throw Error('[ERROR] R 또는 Q를 입력해주세요.');
+    }
+  }
 }
 
 module.exports = Validation;
