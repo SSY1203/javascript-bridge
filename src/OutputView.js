@@ -15,7 +15,8 @@ const OutputView = {
     upBridge += ']';
     downBridge += ']';
 
-    Console.print(`${upBridge}\n${downBridge}\n`);
+    Console.print(`${upBridge}`);
+    Console.print(`${downBridge}\n`);
   },
 
   getResult(bridge) {
@@ -32,7 +33,7 @@ const OutputView = {
     let result = '';
     result += index === 0 ? '' : '|';
     if (current === 'U') {
-      bridge.userPosition[index] === bridge.bridge[index] ? (result += ' O ') : (result += ' X ');
+      result += this.bridgeMatching(bridge, index);
     } else {
       result += '   ';
     }
@@ -43,11 +44,15 @@ const OutputView = {
     let result = '';
     result += index === 0 ? '' : '|';
     if (current === 'D') {
-      bridge.userPosition[index] === bridge.bridge[index] ? (result += ' O ') : (result += ' X ');
+      result += this.bridgeMatching(bridge, index);
     } else {
       result += '   ';
     }
     return result;
+  },
+
+  bridgeMatching(bridge, index) {
+    return bridge.userPosition[index] === bridge.bridge[index] ? ' O ' : ' X ';
   },
 
   printResult(bridge) {

@@ -17,7 +17,7 @@ class BridgeGame {
     this.#bridge = BridgeMaker.makeBridge(size, BridgeRandomNumberGenerator.generate);
   }
 
-  gameSuccess() {
+  gameComplete() {
     if (this.#bridge.length === this.#userPosition.length && this.#isPlaying) {
       return true;
     }

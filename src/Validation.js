@@ -10,6 +10,7 @@ const Validation = {
       Console.print(e);
       return true;
     }
+    return true;
   },
 
   moveBridgePositionCheck(position) {
@@ -21,6 +22,7 @@ const Validation = {
       Console.print(e);
       return true;
     }
+    return true;
   },
 
   retryOrQuitInputCheck(selection) {
@@ -32,6 +34,7 @@ const Validation = {
       Console.print(e);
       return true;
     }
+    return true;
   },
 };
 

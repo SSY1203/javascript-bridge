@@ -18,7 +18,7 @@ const InputView = {
       if (Validation.moveBridgePositionCheck(position)) {
         bridge.move(position);
         OutputView.printMap(bridge);
-        if (bridge.gameSuccess()) {
+        if (bridge.gameComplete()) {
           OutputView.printResult(bridge);
         } else if (bridge.isPlaying) {
           this.readMoving();
@@ -37,6 +37,7 @@ const InputView = {
           this.readMoving();
         } else if (selection === 'Q') {
           OutputView.printResult(bridge);
+          Console.close();
         }
       }
     });
