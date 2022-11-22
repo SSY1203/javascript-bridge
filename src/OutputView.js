@@ -7,20 +7,25 @@ const {
 } = require('./Constant');
 const OutputView = {
   printStart() {
-    Console.print(`${GAME_START}\n`);
+    Console.print(`${GAME_START}`);
   },
 
   printMap(bridge) {
+    let [upBridge, downBridge] = this.getResult(bridge);
+    upBridge += ']';
+    downBridge += ']';
+
+    Console.print(`${upBridge}\n${downBridge}\n`);
+  },
+
+  getResult(bridge) {
     let upBridge = '[';
     let downBridge = '[';
     bridge.userPosition.map((current, index) => {
       upBridge += this.addUpBridgeResult(bridge, current, index);
       downBridge += this.addDownBridgeResult(bridge, current, index);
     });
-    upBridge += ']';
-    downBridge += ']';
-
-    Console.print(`${upBridge}\n${downBridge}\n`);
+    return [upBridge, downBridge];
   },
 
   addUpBridgeResult(bridge, current, index) {
@@ -46,9 +51,9 @@ const OutputView = {
   },
 
   printResult(bridge) {
-    Console.print(`${TOTAL_RESULT}\n`);
+    Console.print(`${TOTAL_RESULT}`);
     this.printMap(bridge);
-    Console.print(`${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}\n`);
+    Console.print(`${GAME_RESULT_CHECK}${bridge.gameSuccessCheck()}`);
     Console.print(`${TOTAL_TRY_COUNT}${bridge.tryCount}`);
   },
 };
